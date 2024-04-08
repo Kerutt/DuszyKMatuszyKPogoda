@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 50px;
+        }
+        #quote {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #weather {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        #countdown {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <div id="quote"></div>
+    <div id="weather"></div>
+    <div id="countdown"></div>
+
+    <script>
+        // Function to fetch a random quote
+        function fetchQuote() {
+            fetch('https://api.quotable.io/random')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('quote').textContent = data.content + " - " + data.author;
+            });
+        }
+
+        // Function to fetch weather
+        function fetchWeather() {
+            const API_KEY = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
+            const CITY = 'YOUR_CITY'; // Replace with your city
+            const URL = `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`;
+
+            fetch(URL)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('weather').textContent = `Weather: ${data.weather[0].description}, Temperature: ${data.main.temp}°C`;
+            });
+        }
+
+        // Function to calculate days to May 1st
+        function daysToMay1st() {
+            const today = new Date();
+            const may1st = new Date(today.getFullYear(), 4, 1); // May is month 4 (0-indexed)
+            if (today.getMonth() > 4 || (today.getMonth() === 4 && today.getDate() > 1)) {
+                may1st.setFullYear(today.getFullYear() + 1);
+            }
+            const diff = may1st - today;
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('countdown').textContent = `Days until May 1st: ${days}`;
+        }
+
+        // Function to calculate days until end of school year
+        function daysUntilEndOfYear() {
+            const today = new Date();
+            const endOfYear = new Date(today.getFullYear(), 11, 31);
+            const diff = endOfYear - today;
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('countdown').textContent += ` | Days until end of school year: ${days}`;
+        }
+
+        // Call functions initially
+        fetchQuote();
+        fetchWeather();
+        daysToMay1st();
+        daysUntilEndOfYear();
+
+        // Set interval to update quote every 10 minutes
+        setInterval(fetchQuote, 10 * 60 * 1000);
+    </script>
+</body>
+</html>
