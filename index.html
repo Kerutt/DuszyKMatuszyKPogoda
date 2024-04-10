@@ -4,107 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-        }
-
-        html, body {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            background: #fff;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        header{
-            height: 50%;
-            width: 80%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .left{
-            height: 15%;
-            width: 10%;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-
-        img{
-            height: 75%;
-        }
-        
-        @font-face {
-            font-family: tt-mussel;
-            src: url(tt-mussels/TT\ Mussels\ Trial\ Bold.otf);
-        }
-
-        h1{
-            font-family: tt-mussel;
-            font-size: 3000%;
-        }
-
-        main{
-            height: 25%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            font-size: 400%;
-            font-family: tt-mussel;
-            align-items: flex-start;
-            text-align: center;
-        }
-
-        footer{
-            height: 25%;
-            width: 100%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            font-size: xx-large;
-            font-family: tt-mussel;
-        }
-
-        .raindrop {
-            position: absolute;
-            background-color: #00f;
-            width: 2px;
-            height: 15px;
-            animation: fall 0.5s linear infinite, blur 0.5s linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        @keyframes blur {
-            0% {
-                filter: blur(0px);
-            }
-            100% {
-                filter: blur(4px);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="Dane.js"></script>
+    <script src="Effx.js"></script>
 </head>
 <body>
     <section class="left">
-        <img src="weather/64x64/day/113.png" alt="">
-        <h2 id="temperature">10°C</h2>
+        <img src="weather/64x64/day/113.png" alt="" id="icon">
+        <h2 id="temp">10°C</h2>
     </section>
 
     <header>
@@ -113,62 +20,13 @@
 
     <main>
         <h2>"Cytat" - Autor</h2>
+
+        <h2>Dasz rade, do wolnego zostało jeszcze 5 dni <br> ( A do wakacji 365 dni ) </h2>
     </main>
 
     <footer>
-        <h2>Dasz rade, do wolnego zostało jeszcze 5 dni</h2>
-        <h2>( A do wakacji 365 dni )</h2>
+        <!-- <h2>Dasz rade, do wolnego zostało jeszcze 5 dni</h2>
+        <h2>( A do wakacji 365 dni )</h2> -->
     </footer>
-
-    <script>
-        var currentDate = new Date()
-        let day = String(currentDate.getDate()).padStart(2, '0')
-        let month = String(currentDate.getMonth()+1).padStart(2, '0')
-
-        document.getElementById("date").textContent = day + "." + month
-    </script>
-
-    <script>
-        // Function to get pixel color at given coordinates
-        function getPixelColor(x, y) {
-            const canvas = document.createElement('canvas');
-            canvas.width = 1;
-            canvas.height = 1;
-            const context = canvas.getContext('2d');
-            context.drawImage(document.body, -x, -y, 1, 1, 0, 0, 1, 1);
-            const pixelData = context.getImageData(0, 0, 1, 1).data;
-            return `rgb(${pixelData[0]}, ${pixelData[1]}, ${pixelData[2]})`;
-        }
-
-        // Create raindrops
-        function createRaindrop() {
-            const raindrop = document.createElement('div');
-            raindrop.classList.add('raindrop');
-            raindrop.style.left = `${Math.random() * window.innerWidth}px`;
-            document.body.appendChild(raindrop);
-            setTimeout(() => {
-                raindrop.remove(); // Remove raindrop after it reaches the bottom
-            }, 5000);
-
-            // Get coordinates of the raindrop
-            const rect = raindrop.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-
-            // Check background color at the position of the raindrop
-            const pixelColor = getPixelColor(x, y);
-            const bodyColor = getComputedStyle(document.body).backgroundColor;
-            const bodyText = document.body.innerText.trim(); // Get the text content of the body and remove any leading/trailing white spaces
-            
-            if (pixelColor !== "rgb(255, 255, 255)" || bodyText === "") { // Jeśli kolor tła nie jest biały lub tło jest puste
-                raindrop.style.backgroundColor = "#fff"; // Zmiana koloru kropli na biały
-            } else {
-                raindrop.style.backgroundColor = "#00f"; // Zmiana koloru kropli na niebieski
-            }
-        }
-
-        // Generate raindrops periodically
-        setInterval(createRaindrop, 100);
-    </script>
 </body>
 </html>
