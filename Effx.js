@@ -1,9 +1,13 @@
-fetchTemperature("Swidnica");
-var currentDate = new Date()
-let day = String(currentDate.getDate()).padStart(2, '0')
-let month = String(currentDate.getMonth()+1).padStart(2, '0')
 
-document.getElementById("date").textContent = day + "." + month
+function start() {
+    fetchTemperature("Swidnica");
+    var currentDate = new Date()
+    let day = String(currentDate.getDate()).padStart(2, '0')
+    let month = String(currentDate.getMonth()+1).padStart(2, '0')
+    
+    document.getElementById("date").textContent = day + "." + month
+}
+
 
 // Create raindrops
 function createRaindrop() {
