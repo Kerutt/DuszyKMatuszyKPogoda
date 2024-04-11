@@ -4,11 +4,19 @@
 // czas do najbliższego dnia wolnego
 // odliczanie czasu do wybranej daty
 
+let text1Quote;
+let text1ToFree;
+let text1ToVacation;
+
+let quotesBool;
+quotesBool = false;
+
 function fetchQuote() {
     fetch('https://api.quotable.io/random')
     .then(response => response.json())
     .then(data => {
-        document.getElementById('quote').textContent = data.content + " - " + data.author;
+        text1Quote = data.content + " - " + data.author
+        document.getElementById('quote').textContent = text1Quote;
     });
 }
 
@@ -20,10 +28,14 @@ async function fetchTemperature(city) {
       const response = await fetch(apiUrl);
       const data = await response.json();
       
-      // Extract temperature from the response
-      const temperatureCelsius = data.current.temp_c;
+      const tempC = data.current.temp_c;
+      const windSpedKph = data.current.wind_kph;
+      const cloudCov = data.current.cloud;
+      const weatherLogo = data.current.condition;
+      const isDay = data.current.is_day;
       
-      document.getElementById("temp").textContent = (`${temperatureCelsius}°C`);
+      document.getElementById("temp").textContent = (`${tempC}°C`);
+      document.getElementById("WetLogo").src = weatherLogo.icon;
   } catch (error) {
       console.error('Error fetching temperature data:', error);
   }
@@ -48,5 +60,17 @@ function daysUntilEndOfYear() {
     document.getElementById('countdown').textContent += ` | Days until end of school year: ${days}`;
 }
 
-// Set interval to update quote every 10 minutes
+function chopText() {
+
+}
+var lastScrollTop = 0;
+
+
+function scroll() {
+    if (quotesBool) {
+        text1Quote = data.content + " - " + data.author
+        document.getElementById('quote').textContent = text1Quote.slice(0, -1);
+    }
+}
+
 setInterval(fetchQuote, 10 * 60 * 1000);
