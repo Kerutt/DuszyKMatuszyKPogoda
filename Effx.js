@@ -33,10 +33,28 @@ function createSnowflake() {
     }, 5000);
 }
 
+function createFog(value) {
+    document.body.style.filter = `contrast(`+value+`%)`
+}
+
+function createClouds() {
+    for (let index = 0; index < 3; index++) {
+        const cloud = document.createElement('img');
+        cloud.classList.add('cloud');
+        // cloud.style.left = `${10*index*2+15}vmin`;
+        cloud.src = 'cloud.png';
+        // document.getElementById("effects").appendChild(cloud);
+        document.getElementById("effects").appendChild(cloud);
+    }
+    createFog(60)
+}
+
 function setWeatherEffx() {
     
 }
+
 setTimeout(setWeatherEffx, 1000)
 // Generate raindrops periodically
 // setInterval(createRaindrop, 100); // Deszcz
-//setInterval(createSnowflake, 100); // Snieg
+// setInterval(createSnowflake, 100); // Snieg
+setTimeout(createClouds, 10)

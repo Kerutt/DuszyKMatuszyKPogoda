@@ -13,6 +13,15 @@ html, body {
     align-items: flex-start;
 }
 
+#effects{
+    position: absolute;
+    transform: translateY(-30%);
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+}
+
 header{
     height: 45%;
     width: 80%;
@@ -83,6 +92,11 @@ footer{
     width: 15px;
     height: 15px;
     animation: fall 2s linear infinite, blur 0.5s linear infinite;
+}
+
+.cloud{
+    width: 25%;
+    height: auto;
 }
 
 @keyframes fall {
