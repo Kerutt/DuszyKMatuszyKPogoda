@@ -16,8 +16,8 @@ html, body {
 #effects{
     position: absolute;
     transform: translateY(-30%);
-    width: 100%;
-    height: 20%;
+    width: 105%;
+    height: 25%;
     display: flex;
     justify-content: center;
 }
@@ -97,6 +97,13 @@ footer{
 .cloud{
     width: 25%;
     height: auto;
+}
+
+.sun{
+    height: 200px;
+    width: 200px;
+    background-image: radial-gradient(rgb(255, 230, 0), rgba(255, 166, 0, 0.815));
+    border-radius: 50%;
 }
 
 @keyframes fall {
