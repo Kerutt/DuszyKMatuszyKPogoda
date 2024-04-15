@@ -33,10 +33,43 @@ function createSnowflake() {
     }, 5000);
 }
 
-function setWeatherEffx() {
-    
+function createFog(value) {
+    document.body.style.filter = `contrast(`+value+`%)`;
 }
-setTimeout(setWeatherEffx, 1000)
-// Generate raindrops periodically
-// setInterval(createRaindrop, 100); // Deszcz
-//setInterval(createSnowflake, 100); // Snieg
+
+function createClouds() {
+    for (let index = 0; index < 3; index++) {
+        const cloud = document.createElement('img');
+        cloud.classList.add('cloud');
+        cloud.src = 'cloud.png';
+        document.getElementById("effects").appendChild(cloud);
+    }
+    createFog(80)
+}
+
+function createSun() {
+    const sun = document.createElement('div')
+    sun.classList.add('sun');
+    document.getElementById("effects").style.justifyContent = 'flex-end';
+    document.getElementById("effects").appendChild(sun);
+}
+
+async function setWeatherEffx(weatherCode) {
+    const codes = await fetch('./weatherCodes.json')
+    .then(function(response) {
+        return response.json();
+    });
+
+    if (codes["Sunny"].includes(weatherCode)) {
+        createSun()
+    } else if(codes["Rainy"].includes(weatherCode)) {
+        setInterval(createRaindrop, 100)
+    } else if(codes["Snowy"].includes(weatherCode)) {
+        setInterval(createSnowflake, 100)
+    } else if(codes["Foggy"].includes(weatherCode)) {
+        createFog(50)
+    }
+    else {
+        console.log(weatherCode)
+    }
+}

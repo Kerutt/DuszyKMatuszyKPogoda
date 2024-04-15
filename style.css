@@ -9,8 +9,30 @@ html, body {
     overflow: hidden;
     background: #00cbfd94;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gradient{
+    height: 100%;
+    width: 1500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    opacity: .9;
+}
+
+#effects{
+    position: absolute;
+    transform: translateY(-30%);
+    width: 105%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -85,6 +107,22 @@ footer{
     width: 15px;
     height: 15px;
     animation: fall 2s linear infinite, blur 0.5s linear infinite;
+}
+
+.cloud{
+    width: 25%;
+    height: auto;
+}
+
+.sun{
+    height: 200px;
+    width: 200px;
+    background-image: radial-gradient(rgb(255, 230, 0), rgba(255, 166, 0, 0.815));
+    border-radius: 50%;
+}
+
+.redText{
+    color: red;
 }
 
 @keyframes fall {
