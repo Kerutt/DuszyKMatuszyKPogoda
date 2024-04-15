@@ -68,8 +68,9 @@ async function setWeatherEffx(weatherCode) {
         setInterval(createSnowflake, 100)
     } else if(codes["Foggy"].includes(weatherCode)) {
         createFog(50)
-    }
-    else {
+    } else if(codes["Cloudy"].includes(weatherCode)) {
+        createClouds()
+    } else {
         console.log(weatherCode)
     }
 }

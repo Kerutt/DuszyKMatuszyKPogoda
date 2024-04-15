@@ -28,7 +28,7 @@ async function fetchTemperature(city) {
       document.getElementById("temp").textContent = (`${temperatureCelsius}°C`);
       document.getElementById("icon").src = icon
 
-      setWeatherEffx()
+      setWeatherEffx(weatherCode)
   } catch (error) {
       console.error('Error fetching temperature data:', error);
   }
