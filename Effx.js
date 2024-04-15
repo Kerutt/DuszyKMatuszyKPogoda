@@ -18,7 +18,7 @@ function createRaindrop() {
     document.body.appendChild(raindrop);
     setTimeout(() => {
         raindrop.remove(); // Remove raindrop after it reaches the bottom
-    }, 5000);
+    }, 10000);
 }
 
 function createSnowflake() {
@@ -30,7 +30,7 @@ function createSnowflake() {
     document.body.appendChild(snow);
     setTimeout(() => {
         snow.remove(); // Remove snowflake after it reaches the bottom
-    }, 5000);
+    }, 6000);
 }
 
 function createFog(value) {
@@ -52,6 +52,13 @@ function createSun() {
     sun.classList.add('sun');
     document.getElementById("effects").style.justifyContent = 'flex-end';
     document.getElementById("effects").appendChild(sun);
+}
+
+function createMoon() {
+    const moon = document.createElement('div')
+    moon.classList.add('moon');
+    document.getElementById("effects").style.justifyContent = 'flex-end';
+    document.getElementById("effects").appendChild(moon);
 }
 
 async function setWeatherEffx(weatherCode) {

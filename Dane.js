@@ -24,11 +24,12 @@ async function fetchTemperature(city) {
       const temperatureCelsius = data.current.temp_c;
       const icon = data.current.condition.icon;
       const weatherCode = data.current.condition.code
+      console.log(weatherCode)
       
       document.getElementById("temp").textContent = (`${temperatureCelsius}°C`);
       document.getElementById("icon").src = icon
 
-      setWeatherEffx(weatherCode)
+    //   setWeatherEffx(weatherCode)
   } catch (error) {
       console.error('Error fetching temperature data:', error);
   }
