@@ -9,26 +9,28 @@
     <script src="Effx.js"></script>
 </head>
 <body>
-    <section class="left">
-        <img alt="" id="icon">
-        <h2 id="temp">0°C</h2>
-    </section>
-
     <section id="effects">
 
     </section>
 
-    <header>
-        <h1 id="date">00.00</h1>
-    </header>
+    <section class="gradient">
+        <section class="left">
+            <img alt="" id="icon">
+            <h2 id="temp">0°C</h2>
+        </section>
 
-    <main>
-        <h2>"Cytat" - Autor</h2>
+        <header>
+            <h1 id="date">00.00</h1>
+        </header>
 
-        <h2>Dasz rade, do wolnego zostało jeszcze 5 dni <br> ( A do wakacji 365 dni ) </h2>
-    </main>
+        <main>
+            <h2><span class="redText">"Cytat"</span> - Autor</h2>
 
-    <footer></footer>
+            <h2>Dasz rade, do wolnego zostało jeszcze <span class="redText">5 dni</span> <br> ( A do wakacji <span class="redText">365 dni</span> ) </h2>
+        </main>
+
+        <footer></footer>
+    </section>
 
     <script>
         start();
@@ -36,7 +38,7 @@
         // setInterval(createSnowflake, 100); // Snieg
         // createClouds() // Zachmurzenie
         // createFog(50) // Mgla
-        createSun() // Slonce
+        // createSun() // Slonce
     </script>
 </body>
 </html>
