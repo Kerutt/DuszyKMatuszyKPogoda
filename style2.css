@@ -10,22 +10,12 @@ html, body {
     overflow: hidden;
     background: #00cbfd94;
     display: flex;
+    /* flex-direction: row; */
     justify-content: center;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    background-image: url(https://images.ctfassets.net/hrltx12pl8hq/6TIZLa1AKeBel0yVO7ReIn/1fc0e2fd9fcc6d66b3cc733aa2547e11/weather-images.jpg?fit=fill&w=1200&h=630);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.gradient{
-    height: 100%;
-    width: 1500px;
-    display: flex;
+    align-items: center;
     flex-wrap: wrap;
     align-items: flex-start;
     background-color: white;
-    /* opacity: .9; */
 }
 
 #effects{
@@ -38,24 +28,20 @@ html, body {
     opacity: 1;
 }
 
-header{
-    height: 45%;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    text-align: center;
-}
-
 .left{
-    height: 15%;
-    width: 10%;
+    height: 20%;
+    width: 25%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 2vmin;
+    text-align: center;
+    /* background-color: rgb(255, 218, 133); */
+}
+
+header{
+    height: 20%;
+    width: 75%;
+    /* background-color: wheat; */
 }
 
 img{
@@ -67,13 +53,30 @@ img{
     src: url(tt-mussels/TT\ Mussels\ Trial\ Bold.otf);
 }
 
-h1{
+.day{
+    position: absolute;
+    font-size: 50vmin;
     font-family: tt-mussel;
-    font-size: 33vmin;
+    align-self: center;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.cytat{
+    position: absolute;
+    font-size: 10vmin;
+    align-self: center;
+    color: black;
 }
 
 main{
-    height: 40%;
+    height: 20%;
+    width: 100%;
+    background-color: white;
+}
+
+footer{
+    height: 60%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -82,16 +85,16 @@ main{
     font-family: tt-mussel;
     align-items: center;
     text-align: center;
+    background-color: white;
+    /* background-image: url('spring.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    mask-image: linear-gradient(to bottom, white, black); */
 }
 
-footer{
-    height: 25%;
-    width: 100%;
-    text-align: center;
-    /* display: flex; */
-    /* justify-content: center; */
-    font-size: 4vmin;
-    font-family: tt-mussel;
+.background{
+    height: 100%;
+    mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0, 0, 0, 0));
 }
 
 .raindrop {
@@ -111,7 +114,7 @@ footer{
 
 .cloud{
     width: 25%;
-    height: auto;
+    /* height: auto; */
 }
 
 .sun{
@@ -121,6 +124,7 @@ footer{
     border-radius: 50%;
     box-shadow: 0px 0px 50px 20px rgb(255, 220, 0);
     margin: -5vmin;
+    filter: blur(5px);
 }
 
 .moon{
