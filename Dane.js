@@ -32,8 +32,6 @@ async function fetchTemperature(city) {
   try {
       const response = await fetch(apiUrl);
       const data = await response.json();
-      
-<<<<<<< HEAD
       const tempC = data.current.temp_c;
       const windSpedKph = data.current.wind_kph;
       const cloudCov = data.current.cloud;
@@ -41,19 +39,9 @@ async function fetchTemperature(city) {
       const isDay = data.current.is_day;
       
       document.getElementById("temp").textContent = (`${tempC}°C`);
-      document.getElementById("WetLogo").src = weatherLogo.icon;
-=======
-      // Extract temperature from the response
-      const temperatureCelsius = data.current.temp_c;
-      const icon = data.current.condition.icon;
-      const weatherCode = data.current.condition.code
-      console.log(weatherCode)
-      
-      document.getElementById("temp").textContent = (`${temperatureCelsius}°C`);
-      document.getElementById("icon").src = icon
+      document.getElementById("icon").src = weatherLogo.icon;
 
-      setWeatherEffx(weatherCode)
->>>>>>> 1896a872fe430c54879d086c0dd2cf388102273d
+      setWeatherEffx(1225)
   } catch (error) {
       console.error('Error fetching temperature data:', error);
   }

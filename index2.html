@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="style2.css">
     <script src="Dane.js"></script>
     <script src="Effx.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 </head>
 <body>
-    <section class="left">
-        <img alt="" id="icon">
-        <h2 id="temp">0°C</h2>
-    </section>
-    
-    <header></header>
+    <header>
+        <section class="left">
+            <img alt="" id="icon">
+            <h2 id="temp">0°C</h2>
+        </section>
+        <h1 class="quote" id="quote">cytat</h1>
+    </header>
     
     <main>
 
@@ -26,17 +28,12 @@
     
     <section id="effects"></section>
     
-    <h1 class="day">00</h1>
-    <h1 class="cytat">cytat</h1>
+    <h1 class="date" id="date">00</h1>
     
     <script>
         start();
-        // setInterval(createRaindrop, 100); // Deszcz
-        // setInterval(createSnowflake, 100); // Snieg
-        // createClouds() // Zachmurzenie
-        // createFog(50) // Mgla
-        // createSun() // Slonce
-        // createMoon()
+        scroll();
+        fetchQuote(); 
     </script>
 </body>
 </html>

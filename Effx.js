@@ -67,9 +67,7 @@ async function setWeatherEffx(weatherCode) {
         return response.json();
     });
 
-    if (codes["Sunny"].includes(weatherCode)) {
-        createSun()
-    } else if(codes["Rainy"].includes(weatherCode)) {
+    if(codes["Rainy"].includes(weatherCode)) {
         setInterval(createRaindrop, 100)
     } else if(codes["Snowy"].includes(weatherCode)) {
         setInterval(createSnowflake, 100)
