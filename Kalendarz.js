@@ -1,6 +1,6 @@
 const today = new Date();
 
-const currentMonth = 7;
+const currentMonth = today.getMonth();
 const currentDay = today.getDate();
 const currentYear = today.getFullYear();
 
