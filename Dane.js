@@ -37,11 +37,12 @@ async function fetchTemperature(city) {
       const cloudCov = data.current.cloud;
       const weatherLogo = data.current.condition;
       const isDay = data.current.is_day;
+      const weatherCode = data.current.condition.code
       
       document.getElementById("temp").textContent = (`${tempC}°C`);
       document.getElementById("icon").src = weatherLogo.icon;
 
-      setWeatherEffx(1225)
+      setWeatherEffx(weatherCode)
   } catch (error) {
       console.error('Error fetching temperature data:', error);
   }
@@ -60,10 +61,19 @@ function daysToFreeDay() {
 
 function daysUntilEndOfYear() {
     const today = new Date();
-    const endOfYear = new Date(today.getFullYear(), 11, 31);
+    const endOfYear = new Date(today.getFullYear(), 6, 21);
     const diff = endOfYear - today;
     const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
     document.getElementById('countdown').textContent += ` | Days until end of school year: ${days}`;
+}
+
+function daysUntilChosenDate(day, month) {
+    const today = new Date();
+    const chosenDate = new Date(today.getFullYear(), month-1, day);
+    const diff = chosenDate - today;
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    console.log(today.getMonth())
+    return days
 }
 
 function chopText() {

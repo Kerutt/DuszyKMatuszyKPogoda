@@ -8,7 +8,6 @@ function start() {
     document.getElementById("date").textContent = day + "." + month
 }
 
-
 // Create raindrops
 function createRaindrop() {
     const raindrop = document.createElement('div');
@@ -18,7 +17,7 @@ function createRaindrop() {
     document.body.appendChild(raindrop);
     setTimeout(() => {
         raindrop.remove(); // Remove raindrop after it reaches the bottom
-    }, 10000);
+    }, 5000);
 }
 
 function createSnowflake() {

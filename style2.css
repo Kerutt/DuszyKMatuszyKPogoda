@@ -30,7 +30,7 @@ html, body {
 
 .left{
     height: 100%;
-    width: 25%;
+    width: 20%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -70,7 +70,7 @@ img{
     align-self: center;
     color: black;
     text-align: center;
-    padding: 10%;
+    padding: 20%;
     mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0, 0, 0, 0));
     align-self: flex-end;
 }
