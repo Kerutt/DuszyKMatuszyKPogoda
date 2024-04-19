@@ -48,25 +48,6 @@ async function fetchTemperature(city) {
   }
 }
 
-function daysToFreeDay() {
-    const today = new Date();
-    const may1st = new Date(today.getFullYear(), 4, 1);
-    if (today.getMonth() > 4 || (today.getMonth() === 4 && today.getDate() > 1)) {
-        may1st.setFullYear(today.getFullYear() + 1);
-    }
-    const diff = may1st - today;
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    document.getElementById('countdown').textContent = `Days until May 1st: ${days}`;
-}
-
-function daysUntilEndOfYear() {
-    const today = new Date();
-    const endOfYear = new Date(today.getFullYear(), 6, 21);
-    const diff = endOfYear - today;
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    document.getElementById('countdown').textContent += ` | Days until end of school year: ${days}`;
-}
-
 function daysUntilChosenDate(day, month) {
     const today = new Date();
     const chosenDate = new Date(today.getFullYear(), month-1, day);
@@ -76,9 +57,20 @@ function daysUntilChosenDate(day, month) {
     return days
 }
 
+function daysToFreeDay() {
+    const days = daysUntilChosenDate(1,5)
+    document.getElementById('freeday').textContent = `Dni do wolnego: ${days}`;
+}
+
+function daysUntilEndOfSchoolYear() {
+    const days = daysUntilChosenDate(21,6)
+    document.getElementById('endofschoolyear').textContent += `Dni do końca roku szkolnego: ${days}`;
+}
+
 function chopText() {
 
 }
+
 var lastScrollTop = 0;
 
 window.addEventListener("wheel", event => {

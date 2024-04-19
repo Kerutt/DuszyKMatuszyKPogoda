@@ -28,6 +28,13 @@ main{
     background-color: rgb(255, 208, 0);
     align-self: flex-end;
     transform: translateY(-9vmin) translateX(5vmin);
+    font-size: 2vmin;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    font-family: consolas;
 }
 
 .day{
