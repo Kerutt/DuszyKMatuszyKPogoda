@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style3.css">
     <script src="Dane.js"></script>
     <script src="Effx.js"></script>
+    <script src="Kalendarz.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 </head>
 <body>
@@ -15,13 +16,13 @@
             <h1 id="endofschoolyear"></h1>
             <h1 id="freeday"></h1>
         </section>
-        <section class="day"></section>
+        <section class="day">
+        </section>
+        <span class="days" id="days"> </span>
     </main>
-
-    <script>
-        console.log(daysUntilChosenDate)
-        daysUntilEndOfSchoolYear()
-        daysToFreeDay()
+    <p><i class="arrow right"></i></p>
+    <script> 
+        addDaysToCalendar();
     </script>
 </body>
 </html>

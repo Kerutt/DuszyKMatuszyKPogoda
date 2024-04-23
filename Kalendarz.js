@@ -9,6 +9,9 @@ const firstDayOfTheMonth = new Date(today.getFullYear(), currentMonth, 1).getDay
 function daysInMonth (year, month) {
     return new Date(year, month, 0).getDate();
 }
+function getNearestFreeDay () {
+
+}
 
 function addDaysToCalendar()
 {   
@@ -17,10 +20,11 @@ function addDaysToCalendar()
         if (firstDayOfTheMonth != 1)
         {
             var ul = document.getElementById("days");
-            var li = document.createElement("li");
-            console.log(i.toString());
+            var li = document.createElement("div");
+            li.id = "dayIndiv";
             var text = document.createTextNode(i.toString());    
             li.appendChild(text);
+
             ul.appendChild(li);
 
         }
@@ -29,10 +33,21 @@ function addDaysToCalendar()
     for (let i = 1; i < daysInMonth(currentYear, currentMonth + 1) +1; i++)
     {
         var ul = document.getElementById("days");
-        var li = document.createElement("li");
-        console.log(i.toString());
+        var li = document.createElement("div");
+        li.id = "dayIndiv";
         var text = document.createTextNode(i.toString());    
         li.appendChild(text);
         ul.appendChild(li);
     }
+}
+//object.addEventListener("click", myScript);
+
+function getCurrentDivUnderMouseName()
+{
+    
+}
+
+function selectDate() 
+{
+
 }
