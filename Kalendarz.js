@@ -1,53 +1,56 @@
-const today = new Date();
+const date = new Date();
 
-const currentMonth = today.getMonth();
-const currentDay = today.getDate();
-const currentYear = today.getFullYear();
+let currentMonth = date.getMonth();
 
-const firstDayOfTheMonth = new Date(today.getFullYear(), currentMonth, 1).getDay();
+// get current year
+let currentYear = date.getFullYear();
 
-function daysInMonth (year, month) {
-    return new Date(year, month, 0).getDate();
-}
-function getNearestFreeDay () {
-
+const months = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"]
+const weekDays = ["Ndz", "Pn", "Wt", "Śr", "Czw", "Pt", "Sb"];
+function calendarFill() {
+    Calendar();
 }
 
-function addDaysToCalendar()
-{   
-    for (let i = daysInMonth(currentYear, currentMonth) - firstDayOfTheMonth + 2; i < daysInMonth(currentYear, currentMonth) + 1; i++)
-    {
-        if (firstDayOfTheMonth != 1)
-        {
-            var ul = document.getElementById("days");
-            var li = document.createElement("div");
-            li.id = "dayIndiv";
-            var text = document.createTextNode(i.toString());    
-            li.appendChild(text);
+function Calendar() {
+    const daysContainer = document.querySelector(".days");
+    const month = document.querySelector(".month")
+    date.setDate(1);
+    const firstDay = new Date(currentYear, currentMonth, 1);
+    const lastDay = new Date(currentYear, currentMonth + 1, 0);
+    const lastDayIndex = lastDay.getDay();
+    const lastDayDate = lastDay.getDate();
+    const prevLastDay = new Date(currentYear, currentMonth, 0);
+    const prevLastDayDate = prevLastDay.getDate();
+    const nextDays = 7 - lastDayIndex ;
 
-            ul.appendChild(li);
+    let days = "";
+    let monthUpdate = "";
 
-        }
+    monthUpdate += months[currentMonth];
+  
+    for (let i = 0; i < 6; i++) {
+        days += `<div class="day name">${weekDays[i]}</div>`;
     }
-    console.log(firstDayOfTheMonth);
-    for (let i = 1; i < daysInMonth(currentYear, currentMonth + 1) +1; i++)
-    {
-        var ul = document.getElementById("days");
-        var li = document.createElement("div");
-        li.id = "dayIndiv";
-        var text = document.createTextNode(i.toString());    
-        li.appendChild(text);
-        ul.appendChild(li);
+
+    for (let x = firstDay.getDay(); x > 0; x--) {
+      days += `<div class="day prev">${prevLastDayDate - x + 1}</div>`;
     }
-}
-//object.addEventListener("click", myScript);
-
-function getCurrentDivUnderMouseName()
-{
-    
-}
-
-function selectDate() 
-{
-
+  
+    for (let i = 1; i <= lastDayDate; i++) {
+      if (
+        i === new Date().getDate() &&
+        currentMonth === new Date().getMonth() &&
+        currentYear === new Date().getFullYear()
+      ) {
+        days += `<div class="day today">${i}</div>`;
+      } else {
+        days += `<div class="day ">${i}</div>`;
+      }
+    }
+  
+    for (let j = 1; j <= nextDays; j++) {
+      days += `<div class="day next">${j}</div>`;
+    }
+    daysContainer.innerHTML = days;
+    ///month.innerHTML = monthUpdate;
 }

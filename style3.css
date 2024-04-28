@@ -7,23 +7,47 @@ html, body{
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
     background-color: rgb(71, 71, 71);
 }
 
-main{
-    height: 65vmin;
-    width: 90vmin;
-    background-color: rgb(238, 238, 238);
+.main{
+    display: flex;
+    flex: 40;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.tools{
+    flex: 30;
+    background-color: #c7445e;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-
+    justify-content: center;
+    align-items: center;
+}
+.date-calc-container {
+    display: flex;
+    flex-direction: row;
+}
+.date-container {
+    display: flex;
+    flex-direction: row;
+    border: 3px solid #000000;
+    border-radius: 5px;
+}
+.date-container label {
+    display: block;
 }
 
+.date-container input {
+    width: 50px;
+}
 
-
+.properties{
+    flex: 30;
+    background-color: #445cc7;
+}
 
 .note{
     position: absolute;
@@ -41,6 +65,11 @@ main{
     font-family: consolas;
 }
 
+.daysContainer{
+    background-color: #44c755;
+    width: 70%;
+    height: 50%;
+}
 .day{
     width: 100%;
     height: 15%;
@@ -48,10 +77,116 @@ main{
     background-color:rgb(199, 147, 78);
     
 }
-
 .table{
     width: 100%;
     height: 15%;
 
 }
+:root {
+    --name-color: #be92a6;
+    --primary-color: #c7445e;
+    --text-color: #1d1d1d;
+    --bg-color: #f1f1fb;
+}
+.weekdays .day {
+    width: calc(100% / 7 - 10px);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+/* info */
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+}
+.month{
+    width: 100%;
+    text-align: center;
+    font-size: 10vmin;
+    text-shadow: 5px 5px #000000 ;
+    color: #fbeee0;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    flex: 10;
+}
+.quote{
+    display: flex;
+    flex: 20;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 4vmin;
+    color: #ffffff;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-decoration:dotted;
+    
+}
+
+.days .day {
+    width: 10%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 1%;
+    margin: 1%;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+    .days .day:not(.next):not(.prev):not(.name):hover {
+    color: #ffffff;
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+    .days .day.today {
+    color: #fff;
+    background-color: var(--primary-color);
+}
+    .days .day.next,
+    .days .day.prev {
+    color: #ccc;
+}
+    .days .day.name {
+    color: #000000;
+    background-color: var(--name-color);
+}
+
+.arrow {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+}
+.arrow-left {
+    transform: rotate(-135deg);
+}
+.arrow-right {
+    transform: rotate(45deg);
+}
+img {
+    height: 10vmin;
+    width: 11vmin;;
+}
+.languages {
+    width: 65%;
+    margin: 10px;;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+
 

@@ -5,103 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style3.css">
-    <script src="Dane.js"></script>
     <script src="Effx.js"></script>
+    <script src="Kalendarz.js"> </script>
+    <script src="NoweDane.js"> </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/0f70f11587.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-
-   =
-
-
-    </table>
-    <main>
-        <table class="table" >
-            <tr>
-                <th width = "20px">1</th>
-                <th width = 20px>2</th>
-                <th width = 20px>3</th>
-                <th width = 20px>4</th>
-                <th width = 20px>5</th>
-                <th width = 20px>6</th>
-                <th width = 20px>7</th>
-               
-            </tr>
-        <section class="note">
-            <h1 id="endofschoolyear"></h1>
-            <h1 id="freeday"></h1>
-        </section>
-        <section  class="day">
-        </section>
-            <table class="table">
-                <tr>
-                    <th width = "20px">8</th>
-                    <th width = 20px>9</th>
-                    <th width = 20px>10</th>
-                    <th width = 20px>11</th>
-                    <th width = 20px>12</th>
-                    <th width = 20px>13</th> 
-                    <th width = 20px>14</th>
-                    
     
-                </tr>
-            </table>
-            
-            <table class="table" >
-                <tr>
-                    <th width = "20px">15</th>
-                    <th width = 20px>16</th>
-                    <th width = 20px>17</th>
-                    <th width = 20px>18</th>
-                    <th width = 20px>19</th>
-                    <th width = 20px>20</th> 
-                    <th width = 20px>21</th>
-                    
-    
-                </tr>
-            </table>
-            <table class="table">
-                <tr>
-                    <th width = "20px">22</th>
-                    <th width = 20px>23</th>
-                    <th width = 20px>24</th>
-                    <th width = 20px>25</th>
-                    <th width = 20px>26</th>
-                    <th width = 20px>27</th> 
-                    <th width = 20px>28</th>
-                    
-    
-                </tr>
-            </table>
-                
-            <table class="table" >
-                <tr>
-                    <th width = "20px">29</th>
-                    <th width = 20px>30</th>
-                    <th width = 20px>1</th>
-                    <th width = 20px>2</th>
-                    <th width = 20px>3</th>
-                    <th width = 20px>4</th> 
-                    <th width = 20px>5</th>
-                    
-    
-                </tr>
-            </table>
-                
-
-
-
-
-
-    </table>
-    </main>
+    <div class="tools"> 
+        <i class="fa-regular fa-calendar fa-10x"></i>
+        <h2 class="data-text" id="data-text-id">OBLICZ DATE</h2>
+        <form id="customDateForm">
+            <div class="date-calc-container">
+                <div class="date-container">
+                    <input type="number" id="year" min="1900" max="2100" required>
+                    <input type="number" id="month" min="1" max="12" required>
+                    <input type="number" id="day" min="1" max="31" required>
+                </div>
+                <i class="fa-solid fa-arrow-right-long fa-2x"></i>
+                <div class="date-container">
+                    <input type="number" id="year1" min="1900" max="2100" required>
+                    <input type="number" id="month1" min="1" max="12" required>
+                    <input type="number" id="day1" min="1" max="31" required>
+                </div>
+            </div>
+        </form>
+        <div class="languages">
+            <img src="images (1).png" class="img"> </img>
+            <img src="pobrany plik (2).png" class="img"> </img> 
+        </div>
+    </div>
+    <div class="main">
+        <div class="arrow arrow-left"> </div> 
+        <div class="daysContainer">
+            <div class="days"></div>
+        </div>
+        <div class="arrow arrow-right"> </div>
+    </div>
+    <div class="properties"> </div>
 
     
     <script>
-        console.log(daysUntilChosenDate)
-        daysUntilEndOfSchoolYear()
-        daysToFreeDay()
+        calendarFill()
     </script>
 </body>
 </html>
