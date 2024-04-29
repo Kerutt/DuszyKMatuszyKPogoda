@@ -44,7 +44,7 @@ function Calendar() {
       ) {
         days += `<div class="day today">${i}</div>`;
       } else {
-        days += `<div class="day ">${i}</div>`;
+        days += `<button onclick="myFunction()" class="day ">${i}</button>`;
       }
     }
   
@@ -53,4 +53,8 @@ function Calendar() {
     }
     daysContainer.innerHTML = days;
     ///month.innerHTML = monthUpdate;
+}
+
+function getCalendarDate() {
+
 }
