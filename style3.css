@@ -24,9 +24,19 @@ html, body{
     background-color: #c7445e;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.date-calc{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .date-calc-container {
     width: 100%;
     display: flex;
@@ -70,8 +80,8 @@ html, body{
 
 .daysContainer{
     background-color: #44c755;
-    width: 40vmin;
-    height: 30vmin;
+    width: 47vmin;
+    height: 43vmin;
 }
 .day{
     width: 100%;
@@ -87,6 +97,7 @@ html, body{
 :root {
     --name-color: #be92a6;
     --primary-color: #c7445e;
+    --hover-color: rgb(255, 175, 0);
     --text-color: #1d1d1d;
     --bg-color: #f1f1fb;
 }
@@ -128,20 +139,19 @@ html, body{
 }
 
 .days .day {
-    width: 3.5vmin;
-    height: 3.5vmin;
+    width: 5.5vmin;
+    height: 5.5vmin;
     display: flex;
     align-items: center;
     justify-content: center;
 
     background-color: #fbeee0;
-    border: 2px solid #422800;
-    box-shadow: #422800 4px 4px 0 0;
+    box-shadow: #422800 .3vmin .3vmin .2vmin .2vmin;
     color: #422800;
     cursor: pointer;
     font-weight: 600;
-    font-size: 18px;
-    padding: 0 1%;
+    font-size: 3vmin;
+    padding: 0 .1vmin;
     margin: 1%;
     line-height: 50px;
     text-align: center;
@@ -152,7 +162,7 @@ html, body{
 }
     .days .day:not(.next):not(.prev):not(.name):hover {
     color: #ffffff;
-    background-color: var(--primary-color);
+    background-color: var(--hover-color);
     transform: scale(1.05);
 }
     .days .day.today {
@@ -182,15 +192,18 @@ html, body{
     transform: rotate(45deg);
 }
 img {
-    height: 10vmin;
-    width: 11vmin;;
+    height: 20%;
+    width: calc(100%/3);
+    border: 1px solid black;
 }
 .languages {
-    width: 65%;
-    margin: 10px;;
+    width: 80%;
+    height: 50%;
+    /* margin: 10px; */
     display: flex;
-    justify-content: left;
-    align-items: center;
+    justify-content: center;
+    /* align-items: center; */
+    border: 5px solid black;
 }
 
 #customDateForm{
