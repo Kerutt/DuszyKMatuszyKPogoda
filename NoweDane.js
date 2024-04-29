@@ -92,7 +92,7 @@ function calcTimeFinal(date1, date2) {
     let months = Math.floor(remainingDays / 30);
     remainingDays %= 30;
 
-    timeToDate.textContent = `${years}lat : ${months}miesięcy : ${remainingDays}dni`;
+    timeToDate.textContent = `${years} lat : ${months} miesięcy : ${remainingDays} dni`;
 }
 function oddYear(year) {
     return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);

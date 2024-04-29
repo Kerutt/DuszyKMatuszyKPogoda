@@ -19,7 +19,8 @@ html, body{
     align-items: center;
 }
 .tools{
-    flex: 30;
+    width: 30%;
+    /* flex: 30; */
     background-color: #c7445e;
     display: flex;
     flex-direction: column;
@@ -27,10 +28,12 @@ html, body{
     align-items: center;
 }
 .date-calc-container {
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
 .date-container {
+    width: 100%;
     display: flex;
     flex-direction: row;
     border: 3px solid #000000;
@@ -41,7 +44,7 @@ html, body{
 }
 
 .date-container input {
-    width: 50px;
+    width: calc(100%/3);
 }
 
 .properties{
@@ -67,15 +70,14 @@ html, body{
 
 .daysContainer{
     background-color: #44c755;
-    width: 70%;
-    height: 50%;
+    width: 40vmin;
+    height: 30vmin;
 }
 .day{
     width: 100%;
-    height: 15%;
+    height: 15vmin;
 
     background-color:rgb(199, 147, 78);
-    
 }
 .table{
     width: 100%;
@@ -96,8 +98,11 @@ html, body{
 }
 /* info */
 .days {
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    /* flex-direction: column; */
     gap: 0px;
 }
 .month{
@@ -123,8 +128,8 @@ html, body{
 }
 
 .days .day {
-    width: 10%;
-    height: 50px;
+    width: 3.5vmin;
+    height: 3.5vmin;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -188,5 +193,6 @@ img {
     align-items: center;
 }
 
-
-
+#customDateForm{
+    width: 100%;
+}

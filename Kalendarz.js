@@ -21,14 +21,14 @@ function Calendar() {
     const lastDayDate = lastDay.getDate();
     const prevLastDay = new Date(currentYear, currentMonth, 0);
     const prevLastDayDate = prevLastDay.getDate();
-    const nextDays = 7 - lastDayIndex ;
+    const nextDays = 6 - lastDayIndex ;
 
     let days = "";
     let monthUpdate = "";
 
     monthUpdate += months[currentMonth];
   
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i <= 6; i++) {
         days += `<div class="day name">${weekDays[i]}</div>`;
     }
 
