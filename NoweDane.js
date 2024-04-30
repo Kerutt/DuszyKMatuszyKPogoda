@@ -8,6 +8,29 @@ function getQuote()
     });
 }
 
+async function fetchTemperature(city) {
+    const apiKey = 'f7348257c28048718bb111043240904';
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+    
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        const tempC = data.current.temp_c;
+        const windSpedKph = data.current.wind_kph;
+        const cloudCov = data.current.cloud;
+        const weatherLogo = data.current.condition;
+        const isDay = data.current.is_day;
+        const weatherCode = data.current.condition.code
+        
+        document.getElementById("temp").textContent = (`${tempC}°C`);
+        document.getElementById("icon").src = weatherLogo.icon;
+  
+        setWeatherEffx(weatherCode)
+    } catch (error) {
+        console.error('Error fetching temperature data:', error);
+    }
+}
+
 async function transalateQuote(setting)
 {
     const res = await fetch("https://libretranslate.com/translate", {

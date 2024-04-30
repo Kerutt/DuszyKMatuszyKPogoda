@@ -15,8 +15,9 @@
     
     <div class="tools">
         <div class="date-calc">
-            <i class="fa-regular fa-calendar fa-10x"></i>
+            <i class="fa-regular fa-calendar" style="font-size: 15vmin;"></i>
             <h2 class="data-text" id="data-text-id">OBLICZ DATE</h2>
+            <h3 class="yearmonthday">ROK/MIESIĄC/DZIEŃ</h3>
             <form id="customDateForm">
                 <div class="date-calc-container">
                     <div class="date-container">
@@ -34,9 +35,9 @@
             </form>
         </div>
         <div class="languages">
-            <img src="pobrany plik (2).png" class="img"> </img>
-            <img src="englishflag.jpg" alt=""> 
-            <img src="images (1).png" class="img"> </img>
+            <img src="pobrany plik (2).png" class="flag"> </img>
+            <img src="englishflag.jpg" alt="" class="flag"> 
+            <img src="images (1).png" class="flag"> </img>
         </div>
     </div>
     <div class="main">
@@ -46,10 +47,19 @@
         </div>
         <div class="arrow arrow-right"> </div>
     </div>
-    <div class="properties"></div>
+    <div class="properties">
+        <section class="temperature-section">
+            <h2 id="temp"></h2>
+            <img alt="" class="weather-icon" id="icon">
+        </section>
+        <h1 class="quote" id="quote"></h1>
+    </div>
 
     <script>
         calendarFill()
+        getQuote()
+        start()
+        fetchTemperature()
     </script>
 </body>
 </html>
