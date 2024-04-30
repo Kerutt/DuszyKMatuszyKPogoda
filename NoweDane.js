@@ -124,3 +124,22 @@ function oddYear(year) {
 function exampleUsesOfWordsForegin() {
     
 }
+
+function daysUntilChosenDate(day, month) {
+    const today = new Date();
+    const chosenDate = new Date(today.getFullYear(), month-1, day);
+    const diff = chosenDate - today;
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    console.log(today.getMonth())
+    return days
+}
+
+function daysUntilEndOfSchool() {
+    const days = daysUntilChosenDate(21, 6);
+    document.getElementById("endofschool").textContent = "Do końca roku szkolnego zostało: " + days + " dni";
+}
+
+function daysUntilNextFreeDay() {
+    const days = daysUntilChosenDate(1, 5)
+    document.getElementById("freeday").textContent = "Dzień wolny za: " + days + " dni"
+}

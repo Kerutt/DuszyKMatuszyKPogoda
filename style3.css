@@ -63,9 +63,8 @@ html, body{
     background-color: rgb(120, 120, 130);
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items:baseline;
 }
 
 .daysContainer{
@@ -112,11 +111,10 @@ html, body{
 }
 .quote{
     display: flex;
-    flex: 20;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 4vmin;
+    font-size: 3vmin;
     color: #ffffff;
     font-family:Georgia, 'Times New Roman', Times, serif;
     text-decoration:dotted;
@@ -229,4 +227,10 @@ html, body{
 #customDateForm{
     display: flex;
     justify-content: center;
+}
+
+.endofschool, .freeday{
+    color: white;
+    font-size: 3vmin;
+    text-align: center;
 }
