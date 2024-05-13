@@ -14,6 +14,12 @@
 <body>
     
     <div class="tools">
+        <div class="country-icons">
+            <img class="country-img" src="Country Icons/germany.png" onclick="selectLanguage('nl')"> </img>
+            <img class="country-img" src="Country Icons/italy.png" onclick="selectLanguage('cs')"> </img>
+            <img class="country-img" src="Country Icons/poland.png" onclick="selectLanguage('zh')"> </img>
+            <img class="country-img" src="Country Icons/united-states.png" onclick="selectLanguage('en')"> </img>
+        </div>
         <div class="date-calc">
             <i class="fa-regular fa-calendar" style="font-size: 15vmin;"></i>
             <h2 class="data-text" id="data-text-id">OBLICZ DATE</h2>
@@ -35,11 +41,7 @@
                 </div>
             </form>
         </div>
-        <div class="languages">
-            <img src="pobrany plik (2).png" class="flag"> </img>
-            <img src="englishflag.jpg" alt="" class="flag"> 
-            <img src="images (1).png" class="flag"> </img>
-        </div>
+        <h1 class="endofschool" id="endofschool">.</h1>
     </div>
     <div class="main">
         <div class="arrow arrow-left"> </div> 
@@ -54,8 +56,16 @@
             <img alt="" class="weather-icon" id="icon">
         </section>
         <h1 class="quote" id="quote"></h1>
-        <h1 class="endofschool" id="endofschool">.</h1>
-        <h1 class="freeday" id="freeday"></h1>
+        <div class="languages">
+            <div class="div-lang" id="1">
+                <img class="country-img-lang" src="Country Icons/poland.png"> </img> 
+            </div>
+            <div class="div-lang" id="2"> 
+                <img class="country-img-lang" src="Country Icons/united-states.png"> </img> 
+            </div>
+            
+            
+        </div>
     </div>
 
     <script>

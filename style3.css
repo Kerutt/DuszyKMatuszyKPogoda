@@ -177,11 +177,11 @@ html, body{
 .languages {
     width: 90%;
     height: 40%;
-    /* margin: 10px; */
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    border: 5px solid black;
+    flex-direction: row;
+}
+.div-lang {
+    width: 100%;
 }
 
 #customDateForm{
@@ -233,4 +233,15 @@ html, body{
     color: white;
     font-size: 3vmin;
     text-align: center;
+}
+
+.country-icons {
+    height: 1%;
+}
+
+.country-img {
+    height: 500%;
+}
+.country-img-lang {
+    height: 25%;
 }
