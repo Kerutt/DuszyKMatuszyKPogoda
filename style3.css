@@ -1,6 +1,7 @@
 *{
     padding: 0%;
     margin: 0%;
+    overflow: hidden;
 }
 
 html, body{
@@ -64,7 +65,7 @@ html, body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items:baseline;
+    align-items: baseline;
 }
 
 .daysContainer{
@@ -180,9 +181,9 @@ html, body{
     display: flex;
     flex-direction: row;
 }
-.div-lang {
+/* .div-lang {
     width: 100%;
-}
+} */
 
 #customDateForm{
     width: 100%;
@@ -236,12 +237,50 @@ html, body{
 }
 
 .country-icons {
-    height: 1%;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .country-img {
-    height: 500%;
+    height: 10vmin;
+    width: 10vmin;
 }
 .country-img-lang {
     height: 25%;
+}
+
+.raindrop {
+    position: absolute;
+    background-color: #00f;
+    width: 2px;
+    height: 15px;
+    animation: fall 0.5s linear infinite, blur 0.5s linear infinite;
+}
+
+.snow {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    animation: fall 2s linear infinite, blur 0.5s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes blur {
+    0% {
+        filter: blur(0px);
+    }
+    100% {
+        filter: blur(4px);
+    }
 }
