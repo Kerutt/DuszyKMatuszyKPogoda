@@ -181,9 +181,9 @@ html, body{
     display: flex;
     flex-direction: row;
 }
-/* .div-lang {
-    width: 100%;
-} */
+.div-lang {
+    width: 25%;
+}
 
 #customDateForm{
     width: 100%;
