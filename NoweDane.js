@@ -1,25 +1,59 @@
-function getQuote()
-{
+function getQuote() {
     fetch('https://api.quotable.io/random')
     .then(response => response.json())
-    .then(data => {
-        text1Quote = data.content + " - " + data.author
-        document.getElementById('quote').textContent = text1Quote;
+    .then(async data => {
+        const translatedText = await transalateQuote(data.content); // Wait for translation
+        const textWithTranslation = translatedText + " - " + data.author;
+        document.getElementById('quote').textContent = textWithTranslation;
     });
+    words();
 }
 
-async function transalateQuote(setting)
-{
-    const res = await fetch("https://libretranslate.com/translate", {
-	method: "POST",
-	body: JSON.stringify({
-		q: "",
-		source: "en",
-		target: setting,
-		format: "text",
-	}),
-	headers: { "Content-Type": "application/json" }
+let setting = 'en';
+function selectLanguage(set) {
+    setting = set;
+}
+
+async function transalateQuote(content) {
+    const res = await fetch("http://localhost:5000/translate", {
+        method: "POST",
+        body: JSON.stringify({
+            q: content,
+            source: "en",
+            target: setting,
+            format: "text",
+            api_key: ""
+        }),
+        headers: { "Content-Type": "application/json" }
     });
+    
+    const data = await res.json();
+    console.log(data);
+    return data.translatedText;
+}
+
+
+async function fetchTemperature(city) {
+    const apiKey = 'f7348257c28048718bb111043240904';
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+    
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        const tempC = data.current.temp_c;
+        const windSpedKph = data.current.wind_kph;
+        const cloudCov = data.current.cloud;
+        const weatherLogo = data.current.condition;
+        const isDay = data.current.is_day;
+        const weatherCode = data.current.condition.code
+        
+        document.getElementById("temp").textContent = (`${tempC}°C`);
+        document.getElementById("icon").src = weatherLogo.icon;
+  
+        setWeatherEffx(weatherCode)
+    } catch (error) {
+        console.error('Error fetching temperature data:', error);
+    }
 }
 
 let yearInput;
@@ -100,4 +134,54 @@ function oddYear(year) {
 
 function exampleUsesOfWordsForegin() {
     
+}
+
+function daysUntilChosenDate(day, month) {
+    const today = new Date();
+    const chosenDate = new Date(today.getFullYear(), month-1, day);
+    const diff = chosenDate - today;
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    console.log(today.getMonth())
+    return days
+}
+
+function daysUntilEndOfSchool() {
+    const days = daysUntilChosenDate(21, 6);
+    document.getElementById("endofschool").textContent = "Do końca roku szkolnego zostało: " + days + " dni";
+}
+
+function daysUntilNextFreeDay() {
+    const days = daysUntilChosenDate(1, 5)
+    document.getElementById("freeday").textContent = "Dzień wolny za: " + days + " dni"
+}
+
+const wordExamples = [
+    "Hello - Hello, how are you today?",
+    "World - The world is a big place with so much to explore.",
+    "Beautiful - She looked absolutely beautiful in that dress.",
+    "Friend - I'm meeting my friend for coffee later.",
+    "Happiness - Finding happiness in small moments is important.",
+    "Adventure - Going on an adventure to discover new places.",
+    "Delicious - The food at that restaurant is always delicious.",
+    "Love - She fell in love with him the moment they met.",
+    "Sunshine - The warm sunshine brightened up the whole room.",
+    "Dream - Following your dreams can lead to amazing experiences.",
+    "Smile - Her smile could light up the darkest of rooms.",
+    "Success - Hard work and determination are key to achieving success.",
+    "Peace - Finding peace and tranquility in nature.",
+    "Magic - There's a certain magic in the air during the holiday season.",
+    "Inspiration - Reading biographies of successful people can be a great source of inspiration."
+];
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+let index;
+async function words ()
+{
+    index = getRandomInt(0, wordExamples.length - 1);
+    translatedWord =  await transalateQuote(wordExamples[index])
+    document.getElementById('1').textContent = translatedWord;
+    document.getElementById('2').textContent = wordExamples[index];
 }

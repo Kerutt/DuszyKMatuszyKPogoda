@@ -13,28 +13,35 @@
 </head>
 <body>
     
-    <div class="tools"> 
-        <i class="fa-regular fa-calendar fa-10x"></i>
-        <h2 class="data-text" id="data-text-id">OBLICZ DATE</h2>
-        <form id="customDateForm">
-            <div class="date-calc-container">
-                <div class="date-container">
-                    <input type="number" id="year" min="1900" max="2100" required>
-                    <input type="number" id="month" min="1" max="12" required>
-                    <input type="number" id="day" min="1" max="31" required>
-                </div>
-                <i class="fa-solid fa-arrow-right-long fa-2x"></i>
-                <div class="date-container">
-                    <input type="number" id="year1" min="1900" max="2100" required>
-                    <input type="number" id="month1" min="1" max="12" required>
-                    <input type="number" id="day1" min="1" max="31" required>
-                </div>
-            </div>
-        </form>
-        <div class="languages">
-            <img src="images (1).png" class="img"> </img>
-            <img src="pobrany plik (2).png" class="img"> </img> 
+    <div class="tools">
+        <div class="country-icons">
+            <img class="country-img" src="Country Icons/germany.png" onclick="selectLanguage('nl')"> </img>
+            <img class="country-img" src="Country Icons/italy.png" onclick="selectLanguage('cs')"> </img>
+            <img class="country-img" src="Country Icons/poland.png" onclick="selectLanguage('zh')"> </img>
+            <img class="country-img" src="Country Icons/united-states.png" onclick="selectLanguage('en')"> </img>
         </div>
+        <div class="date-calc">
+            <i class="fa-regular fa-calendar" style="font-size: 15vmin;"></i>
+            <h2 class="data-text" id="data-text-id">OBLICZ DATE</h2>
+            <br>
+            <h3 class="yearmonthday">ROK/MIESIĄC/DZIEŃ</h3>
+            <form id="customDateForm">
+                <div class="date-calc-container">
+                    <div class="date-container">
+                        <input type="number" id="year" min="1900" max="2100" required>
+                        <input type="number" id="month" min="1" max="12" required>
+                        <input type="number" id="day" min="1" max="31" required>
+                    </div>
+                    <i class="fa-solid fa-arrow-right-long fa-2x"></i>
+                    <div class="date-container">
+                        <input type="number" id="year1" min="1900" max="2100" required>
+                        <input type="number" id="month1" min="1" max="12" required>
+                        <input type="number" id="day1" min="1" max="31" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <h1 class="endofschool" id="endofschool">.</h1>
     </div>
     <div class="main">
         <div class="arrow arrow-left"> </div> 
@@ -43,10 +50,35 @@
         </div>
         <div class="arrow arrow-right"> </div>
     </div>
-    <div class="properties"></div>
+    <div class="properties">
+        <section class="temperature-section">
+            <h2 id="temp"></h2>
+            <img alt="" class="weather-icon" id="icon">
+        </section>
+        <h1 class="quote" id="quote"></h1>
+        <div class="languages">
+            <div class="div-lang" id="1">
+                <img class="country-img-lang" src="Country Icons/poland.png"> </img> 
+            </div>
+            <div class="div-lang" id="2"> 
+                <img class="country-img-lang" src="Country Icons/united-states.png"> </img> 
+            </div>
+            <div class="div-lang" id="2"> 
+                <img class="country-img-lang" src="Country Icons/germany.png"> </img> 
+            </div>
+            <div class="div-lang" id="2"> 
+                <img class="country-img-lang" src="Country Icons/italy.png"> </img> 
+            </div>
+        </div>
+    </div>
 
     <script>
         calendarFill()
+        getQuote()
+        start()
+        fetchTemperature()
+        daysUntilEndOfSchool()
+        daysUntilNextFreeDay()
     </script>
 </body>
 </html>

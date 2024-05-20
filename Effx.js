@@ -5,7 +5,7 @@ function start() {
     let day = String(currentDate.getDate()).padStart(2, '0')
     let month = String(currentDate.getMonth()+1).padStart(2, '0')
     
-    document.getElementById("date").textContent = day + "." + month
+    // document.getElementById("date").textContent = day + "." + month
 }
 
 // Create raindrops

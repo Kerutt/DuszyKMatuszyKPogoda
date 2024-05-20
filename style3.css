@@ -1,6 +1,7 @@
 *{
     padding: 0%;
     margin: 0%;
+    overflow: hidden;
 }
 
 html, body{
@@ -8,7 +9,7 @@ html, body{
     width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: rgb(71, 71, 71);
+    background-color: rgb(100,100,100);
 }
 
 .main{
@@ -21,16 +22,26 @@ html, body{
 .tools{
     width: 30%;
     /* flex: 30; */
-    background-color: #c7445e;
+    background-color: rgb(120, 120, 130);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.date-calc{
+    width: 100%;
+    height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .date-calc-container {
-    width: 100%;
+    width: 90%;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
 }
 .date-container {
     width: 100%;
@@ -38,40 +49,29 @@ html, body{
     flex-direction: row;
     border: 3px solid #000000;
     border-radius: 5px;
-}
-.date-container label {
-    display: block;
+    justify-content: center;
 }
 
 .date-container input {
     width: calc(100%/3);
+    height: 85%;
+    font-size: 2vmin;
 }
 
 .properties{
-    flex: 30;
-    background-color: #445cc7;
-}
-
-.note{
-    position: absolute;
-    width: 20vmin;
-    height: 25vmin;
-    background-color: rgb(255, 208, 0);
-    align-self: flex-end;
-    transform: translateY(-9vmin) translateX(5vmin);
-    font-size: 2vmin;
-    text-align: center;
+    width: 30%;
+    height: 100%;
+    background-color: rgb(120, 120, 130);
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     flex-wrap: wrap;
-    font-family: consolas;
+    justify-content: center;
+    align-items: baseline;
 }
 
 .daysContainer{
     background-color: #44c755;
-    width: 40vmin;
-    height: 30vmin;
+    width: 47vmin;
+    height: 43vmin;
 }
 .day{
     width: 100%;
@@ -79,14 +79,10 @@ html, body{
 
     background-color:rgb(199, 147, 78);
 }
-.table{
-    width: 100%;
-    height: 15%;
-
-}
 :root {
     --name-color: #be92a6;
     --primary-color: #c7445e;
+    --hover-color: rgb(255, 175, 0);
     --text-color: #1d1d1d;
     --bg-color: #f1f1fb;
 }
@@ -116,32 +112,30 @@ html, body{
 }
 .quote{
     display: flex;
-    flex: 20;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 4vmin;
+    font-size: 3vmin;
     color: #ffffff;
     font-family:Georgia, 'Times New Roman', Times, serif;
     text-decoration:dotted;
-    
+    padding: 3%;
 }
 
 .days .day {
-    width: 3.5vmin;
-    height: 3.5vmin;
+    width: 5.5vmin;
+    height: 5.5vmin;
     display: flex;
     align-items: center;
     justify-content: center;
 
     background-color: #fbeee0;
-    border: 2px solid #422800;
-    box-shadow: #422800 4px 4px 0 0;
+    box-shadow: #422800 .3vmin .3vmin .2vmin .2vmin;
     color: #422800;
     cursor: pointer;
     font-weight: 600;
-    font-size: 18px;
-    padding: 0 1%;
+    font-size: 3vmin;
+    padding: 0 .1vmin;
     margin: 1%;
     line-height: 50px;
     text-align: center;
@@ -150,20 +144,20 @@ html, body{
     -webkit-user-select: none;
     touch-action: manipulation;
 }
-    .days .day:not(.next):not(.prev):not(.name):hover {
+.days .day:not(.next):not(.prev):not(.name):not(.today):hover {
     color: #ffffff;
-    background-color: var(--primary-color);
+    background-color: var(--hover-color);
     transform: scale(1.05);
 }
-    .days .day.today {
+.days .day.today {
     color: #fff;
     background-color: var(--primary-color);
 }
-    .days .day.next,
-    .days .day.prev {
+.days .day.next,
+.days .day.prev {
     color: #ccc;
 }
-    .days .day.name {
+.days .day.name {
     color: #000000;
     background-color: var(--name-color);
 }
@@ -181,18 +175,112 @@ html, body{
 .arrow-right {
     transform: rotate(45deg);
 }
-img {
-    height: 10vmin;
-    width: 11vmin;;
-}
 .languages {
-    width: 65%;
-    margin: 10px;;
+    width: 90%;
+    height: 40%;
     display: flex;
-    justify-content: left;
-    align-items: center;
+    flex-direction: row;
+}
+.div-lang {
+    width: 25%;
 }
 
 #customDateForm{
     width: 100%;
+}
+
+.data-text{
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3vmin;
+}
+
+.weather-icon{
+    width: 15vmin;
+    height: auto;
+    border: 0px;
+    align-self: flex-end;
+}
+
+.temperature-section{
+    width: 100%;
+    height: 15%;
+    align-self: flex-start;
+    display: flex;
+    color: white;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 2vmin;
+}
+
+.flag{
+    width: calc(100%/3);
+    height: 10vmin;
+    border: .2vmin black solid;
+}
+
+.yearmonthday{
+    font-size: 2vmin;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#customDateForm{
+    display: flex;
+    justify-content: center;
+}
+
+.endofschool, .freeday{
+    color: white;
+    font-size: 3vmin;
+    text-align: center;
+}
+
+.country-icons {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.country-img {
+    height: 10vmin;
+    width: 10vmin;
+}
+.country-img-lang {
+    height: 25%;
+}
+
+.raindrop {
+    position: absolute;
+    background-color: #00f;
+    width: 2px;
+    height: 15px;
+    animation: fall 0.5s linear infinite, blur 0.5s linear infinite;
+}
+
+.snow {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    animation: fall 2s linear infinite, blur 0.5s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes blur {
+    0% {
+        filter: blur(0px);
+    }
+    100% {
+        filter: blur(4px);
+    }
 }
